@@ -1,0 +1,50 @@
+<md-menu-bar> <md-menu> <md-button
+						aria-label="Open Menu" class="md-icon-button"
+						ng-click="$mdOpenMenu($event)"> <md-icon
+						md-menu-origin md-svg-icon="img/icons/more_vert.svg"></md-icon> </md-button> <md-menu-content>
+					<md-menu-item class="md-indent"> <md-button
+						class="md-icon-button"
+						ui-sref="gfe.classroomCourseView({selectedCourse: course})">
+					<ng-md-icon icon="pageview" style="fill: md-default" size="20">
+					<md-tooltip> View Course</md-tooltip></ng-md-icon></md-button>View Course </md-menu-item> <md-menu-item class="md-indent"> <md-button
+						class="md-icon-button"
+						ui-sref="gfe.classroomCourseEdit({selectedCourse: course})">
+					<ng-md-icon icon="edit" style="fill: md-default" size="20">
+					<md-tooltip> Edit Course</md-tooltip></ng-md-icon></md-button>Edit Course </md-menu-item>
+					<md-menu-item class="md-indent"> <md-button
+						class="md-icon-button" ng-href="{{course.alternateLink}}"
+						target="_blank"> <ng-md-icon icon="exit_to_app"
+						style="fill: md-default" size="20"> <md-tooltip>
+					Goto Actual Classroom Page</md-tooltip></ng-md-icon></md-button>Goto Actual Classroom Page </md-menu-item>
+					<md-menu-item class="md-indent"> <md-button
+						class="md-icon-button"
+						ui-sref="gfe.classroomCourseView({selectedCourse: course})">
+					<ng-md-icon icon="pageview" style="fill: md-default" size="20">
+					<md-tooltip> View Course</md-tooltip></ng-md-icon></md-button>View Course </md-menu-item>
+					 <md-menu-divider></md-menu-divider> <md-menu-item
+						class="md-indent"> <md-menu>
+                  <md-button ng-click="$mdMenu.open()">Teacher</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button ui-sref="gfe.classroomCourseAddNewUser({selectedCourseId: course.id, userType : 'Teacher',courseName:course.name})">Add</md-button></md-menu-item>
+                    <md-menu-item><md-button ui-sref="gfe.classroomCourseUserList({selectedCourseId: course.id, userType : 'Teacher',courseName:course.name})">List</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu></md-menu-item> <md-menu-item
+						class="md-indent"> <md-menu>
+                  <md-button ng-click="$mdMenu.open()">Student</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button ui-sref="gfe.classroomCourseAddNewUser({selectedCourseId: course.id, userType : 'Student',courseName:course.name})">Add</md-button></md-menu-item>
+                    <md-menu-item><md-button ui-sref="gfe.classroomCourseUserList({selectedCourseId: course.id, userType: 'Student',courseName:course.name})">List</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu> </md-menu-item> <md-menu-divider></md-menu-divider>
+					<md-menu-item class="md-indent"> <md-button
+						class="md-icon-button"
+						ng-show="course.courseState==='ACTIVE'"
+						ng-click="changeCourseState('ARCHIVED',$event)">
+					<ng-md-icon icon="archive" style="fill: md-default" size="20">
+					<md-tooltip> Archive Course</md-tooltip></ng-md-icon></md-button>Archive Course </md-menu-item>
+					<md-menu-item class="md-indent"> <md-button
+						class="md-icon-button"
+						ng-click="deleteCourse(course.id,$event)">
+					<ng-md-icon icon="delete" style="fill: md-default" size="20">
+					<md-tooltip> Archive Course</md-tooltip></ng-md-icon></md-button>Delete Course </md-menu-item>
+					 </md-menu-content> </md-menu> </md-menu-bar>
